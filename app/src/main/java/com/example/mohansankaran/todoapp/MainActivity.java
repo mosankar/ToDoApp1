@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAddItem(View view) {
-        if(!(etEditText.getText().toString().equals(""))){
+        if(!(etEditText.getText().toString().trim().equals(""))){
             aToDoAdapter.add(etEditText.getText().toString());
             writeItems();
             etEditText.setText("");
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             String et2EditedText = data.getExtras().getString("et2EditedText");
             int intPosition = data.getExtras().getInt("intPosition");
-            if(!(et2EditedText.equals(""))){
+            if(!(et2EditedText.trim().equals(""))){
                 toDoItems.set(intPosition, et2EditedText);
                 aToDoAdapter.notifyDataSetChanged();
                 writeItems();
